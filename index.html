@@ -213,6 +213,55 @@
             width: 90%;
             }
         }
+        
+        /* brand crousel */
+             
+/* Style for the car brand carousel */
+.car-brand-carousel {
+    background-color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 15%;  /* Adjust to show smaller logos */
+    margin: 0 10px;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img {
+    width: 100%;  /* Make the image fit the item container */
+    height: auto;  /* Maintain aspect ratio */
+    object-fit: contain;  /* Ensure logo is fully visible without distortion */
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        width: 20%;  /* Increase size on smaller screens to make it more readable */
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        width: 25%;  /* Adjust for even smaller screens */
+        margin: 0 5px;
+    }
+}
+                
     </style>
 </head>
 <body>
@@ -306,6 +355,21 @@
     </div>
 
     <div class="dots" id="dots"></div>
+</div>
+
+<!-- Add this right before the footer -->
+<div class="car-brand-carousel">
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Add car brand logos here -->
+            <div class="carousel-item"><img src="assets/img/brand/01.png" alt="Brand 1"></div>
+            <div class="carousel-item"><img src="assets/img/brand/02.png" alt="Brand 2"></div>
+            <div class="carousel-item"><img src="assets/img/brand/03.png" alt="Brand 3"></div>
+            <div class="carousel-item"><img src="assets/img/brand/04.png" alt="Brand 4"></div>
+            <div class="carousel-item"><img src="assets/img/brand/05.png" alt="Brand 5"></div>
+            <div class="carousel-item"><img src="assets/img/brand/06.png" alt="Brand 6"></div>            
+        </div>
+    </div>
 </div>
 
 <div class="footer">
@@ -436,6 +500,56 @@
             document.body.style.overflow = 'hidden'; 
         }
     }
+    
+  // Brand carousel
+// JavaScript for Infinite Scroll carousel functionality
+const carousel = document.querySelector('.carousel');
+const items = Array.from(document.querySelectorAll('.carousel-item'));
+let carouselIndex = 0;
+const totalItems = items.length;
+const itemsToShow = 5;  // Number of images to display at once
+const itemWidth = document.querySelector('.carousel-item').offsetWidth + 20;  // Width of each item + margin
+
+// Clone the first 4 items to create the infinite loop effect
+const clonedItems = items.slice(0, itemsToShow - 1).map(item => item.cloneNode(true)); // Clone 4 items
+clonedItems.forEach(item => carousel.appendChild(item)); // Append the clones at the end
+
+// Move the carousel forward by one item
+function moveCarousel() {
+    carouselIndex++;
+
+    if (carouselIndex >= totalItems) {
+        // Reset to the first item without visible jump
+        carousel.style.transition = 'none';  // Disable transition for immediate reset
+        carousel.style.transform = `translateX(0)`; // Reset to start
+        carouselIndex = 1; // Set to the first real item (after cloning)
+        
+        // Allow transition again after resetting position
+        setTimeout(() => {
+            carousel.style.transition = 'transform 0.5s ease'; // Re-enable transition
+        }, 50);
+    }
+
+    // Move carousel to the next position
+    carousel.style.transform = `translateX(-${carouselIndex * itemWidth}px)`;
+}
+
+// Infinite scrolling every 3 seconds
+setInterval(moveCarousel, 3000);
+
+// Optional: Resize the carousel items on window resize
+window.addEventListener('resize', () => {
+    const itemWidth = document.querySelector('.carousel-item').offsetWidth + 20; // 20px margin
+    carousel.style.transition = 'none'; // Disable transition during resize
+    carousel.style.transform = `translateX(-${carouselIndex * itemWidth}px)`; // Adjust position
+
+    // Reset transition after resizing
+    setTimeout(() => {
+        carousel.style.transition = 'transform 0.5s ease';
+    }, 50);
+});
+
+    
 </script>
 </body>
 </html>
