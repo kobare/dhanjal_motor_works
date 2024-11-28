@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanjal Motor Works - Contact Us</title>
+    <link rel="icon" href="assets/img/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .banner {
+            background-color: #9d1e02;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            flex-shrink: 0;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            flex: 1;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .contact-item i {
+            font-size: 24px;
+            color: #9d1e02;
+            margin-right: 10px;
+        }
+        .contact-item h3 {
+            margin: 0;
+            color: #9d1e02;
+        }
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            margin-bottom: 20px;
+            color: #9d1e02;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #9d1e02;
+            outline: none;
+        }
+        .contact-form button {
+            background-color: #9d1e02;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #a12d36;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background-color: white;
+            color: #00143d; 
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 320px;
+            padding: 0 40px;
+        }
+        .logo {
+            font-size: 24px;
+            color: #00143d; 
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+        .nav a {
+            color: #00143d; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav a:hover {
+            color: #9d1e02; 
+        }
+        .nav a.active {
+            color: #00143d; 
+        }
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #9d1e02; 
+            border-radius: 2px;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #00143d; 
+            cursor: pointer;
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: fixed; 
+            top: 25%; 
+            left: 50%; 
+            transform: translate(-50%, 0); 
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-height: 70%; 
+            border-radius: 10px;
+            padding: 20px;
+            gap: 20px;
+            overflow-y: auto; 
+            z-index: 20; 
+        }
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: left;
+        }
+        .mobile-nav a.active {
+            color: #9d1e02; 
+        }
+        .footer {
+            background-color: #00143d; 
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            flex-shrink: 0; 
+        }
+        /* Cursor style only for the location link */
+        .location-link {
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                gap: 0;
+                padding: 0 20px;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .nav {
+                display: none;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-content {
+                align-items: center;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header" id="header">
+    <div class="header-content">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo/logo.png" alt="Dhanjal Motor Works Logo">
+        </a>
+        <div class="nav" id="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact</a>            
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</div>
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>    
+    <a href="contact.html" class="active">Contact</a>
+</div>
+
+<div class="banner">
+    <h1>Contact Us</h1>
+    <p>Feel free to get in touch!</p>
+</div>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <a href="https://maps.app.goo.gl/Spz2nf9bD3tbdKrx7" target="_blank" class="location-link" style="text-decoration: none; color: inherit;">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Location</h3>
+                    <p>Bondo Rd Off Dunga Rd,<br>P.O. Box 74423, 00200. Nairobi, Kenya</p>
+                </div>
+            </div>
+        </a>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+                <h3>Mobile</h3>
+                <p>+254 722 707 025</p>
+            </div>
+        </div>
+        <a href="https://wa.me/254788707095" target="_blank" class="location-link" style="text-decoration: none; color: inherit;">
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <h3>Whatsapp</h3>
+                    <p>+254 788 707 095</p>
+                </div>
+            </div>
+        </a>
+                     
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <h3>Email</h3>
+                <p>dhanjalmotorworks@yahoo.com<br>dmw@gmail.com</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+                <h3>Operating Hours</h3>
+                <p>Monday - Saturday: 8 AM - 5 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form action="https://formsubmit.co/dkobare@gmail.com" method="POST" target="_blank">
+            <input type="text" placeholder="Your Name" name="name" required>
+            <input type="email" placeholder="Your Email" name="email" required>
+            <textarea rows="5" placeholder="Your Message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; <span id="currentYear"></span> Dhanjal Motor Works. All Rights Reserved.
+</div>
+
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        if (mobileNav.style.display === 'flex') {
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            document.body.style.overflow = ''; 
+        }
+    }
+
+    window.onclick = function(event) {
+        const mobileNav = document.getElementById('mobileNav');
+        const header = document.getElementById('header');
+        if (!header.contains(event.target) && mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+            document.body.style.overflow = ''; 
+        }
+    };
+</script>
+
+</body>
+</html>
+

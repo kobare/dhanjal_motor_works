@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanjal Motor Works</title>
+    <link rel="icon" href="assets/img/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Added Meta Keywords and Description -->
+    <meta name="keywords" content="Turbine Shaft Grinding, Repair of Turbine Shaft in Africa, Repair Of Alternator Shaft Africa, Grinding of Alternator shaft, Onsite Inspection Of Crankshaft, On Site Crankshaft Grinding In Africa, In Situ Machining Repair Services, in situ crankshaft grinding repair, Diesel Engine Repair, Diesel Engine Overhauling Africa, Crankshaft Reconditioning, Crankshaft Journal Grinding, Crankshaft Machining In Africa, Crankshaft Grinding Repair, Crankshaft Grinding And Polishing, Metal stitching of engine block, Crankshaft Grinding In Africa, Metal locking in Africa, On-site crankshaft repair, Crankshaft Polishing Machine In Africa, Onsite Crankshaft Grinding services">
+    <meta name="description" content="Expert services in crankshaft grinding, engine repairs, and machining in Africa. We specialize in turbine shaft grinding, onsite crankshaft repair, and more.">
+        
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 98%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            color: white;
+            text-align: center;
+            z-index: 5; 
+            padding: 20px; 
+        }
+        .heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px; 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+        }
+        .description {
+            font-size: 24px; 
+            max-width: 600px; 
+            line-height: 1.5;
+            padding: 0 20px;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background-color: white;
+            color: #00143d; 
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 320px;
+            padding: 0 40px;
+        }
+        .logo {
+            font-size: 24px;
+            color: #00143d; 
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+        .nav a {
+            color: #00143d; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav a:hover {
+            color: #9d1e02; 
+        }
+        .nav a.active {
+            color: #00143d; 
+        }
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #9d1e02; 
+            border-radius: 2px;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #00143d; 
+            cursor: pointer;
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: fixed; 
+            top: 25%; 
+            left: 50%; 
+            transform: translate(-50%, 0); 
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-height: 70%; 
+            border-radius: 10px;
+            padding: 20px;
+            gap: 20px;
+            overflow-y: auto; 
+            z-index: 20; 
+        }
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: left;
+        }
+        .mobile-nav a.active {
+            color: #9d1e02; 
+        }
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: white; 
+            border-radius: 50%;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .dot.active {
+            background-color: #9d1e02; 
+        }
+        .footer {
+            background-color: #00143d; 
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                gap: 0;
+                padding: 0 20px;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .nav {
+                display: none;
+            }
+            .menu-icon {
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-content {
+                align-items: center;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav a {
+                font-size: 14px; 
+            }
+            .heading {
+                font-size: 36px; /* Reduced size for mobile */
+            }
+            
+            .overlay {
+            width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-01.jpg');">
+            <div class="overlay">
+                <div class="heading">Panel Beating</div>
+                <div class="description">Our expert panel beating services restore your vehicle’s bodywork to perfection, removing dents, scratches, and collision damage with precision.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-02.jpg');">
+            <div class="overlay">
+                <div class="heading">Spray Painting</div>
+                <div class="description">We offer high-quality spray painting services to restore your vehicle’s finish, ensuring a smooth, professional result with custom color matching.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-03.jpg');">
+            <div class="overlay">
+                <div class="heading">Vehicle Servicing</div>
+                <div class="description">Comprehensive vehicle servicing packages that include engine checks, brake inspections, oil changes, and more to keep your vehicle running smoothly.</div>
+            </div>
+        </div>        
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-04.jpg');">
+            <div class="overlay">
+                <div class="heading">Vehicle Hauling</div>
+                <div class="description">Reliable and efficient vehicle hauling services for transporting cars to and from our garage for repairs, servicing, or modifications.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-05.jpg');">
+            <div class="overlay">
+                <div class="heading">Minor and Major Repairs</div>
+                <div class="description">We handle both minor and major repairs, from small fixes to comprehensive overhauls, ensuring your vehicle is road-ready in no time.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-06.jpg');">
+            <div class="overlay">
+                <div class="heading">Suspension Repairs</div>
+                <div class="description">Expert suspension repair services that restore your vehicle’s ride quality and handling, ensuring maximum comfort and safety on the road.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-07.jpg');">
+            <div class="overlay">
+                <div class="heading">Tire Fitting & Alignment</div>
+                <div class="description">Our tire fitting and alignment services ensure even tire wear, better fuel efficiency, and smoother handling for your vehicle.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-08.jpg');">
+            <div class="overlay">
+                <div class="heading">Battery Services</div>
+                <div class="description">Reliable battery testing, replacement, and installation services to ensure your vehicle starts reliably every time.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-09.jpg');">
+            <div class="overlay">
+                <div class="heading">Brake System Services</div>
+                <div class="description">Comprehensive brake system repairs and replacements, from pads to rotors, ensuring your vehicle stops safely and effectively every time.</div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/img/home_bg/bg-10.jpg');">
+            <div class="overlay">
+                <div class="heading">Engine Diagnostics</div>
+                <div class="description">Advanced engine diagnostics services to pinpoint issues affecting performance, from engine misfires to fuel system problems, and provide timely solutions.</div>
+            </div>
+        </div>
+    </div>    
+    <div class="header" id="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo/logo.png" alt="Dhanjal Motor Works Logo">
+            </a>
+            <div class="nav" id="nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="dots" id="dots"></div>
+</div>
+
+<div class="footer">
+    &copy; <span id="currentYear"></span> Dhanjal Motor Works. All Rights Reserved.
+</div>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const dotsContainer = document.getElementById('dots');
+    let index = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let autoSlideInterval;
+
+    function createDots() {
+        const slideCount = slides.children.length;
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => showSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            showSlide(index + 1);
+        }, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    function showSlide(n) {
+        index = (n + slides.children.length) % slides.children.length;
+        slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+        updateDots(index);
+    }
+
+    function updateDots(activeIndex) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+    }
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    createDots();
+    showSlide(0);
+    startAutoSlide();
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') {
+            showSlide(index + 1);
+        } else if (event.key === 'ArrowLeft') {
+            showSlide(index - 1);
+        }
+    });
+
+    // Touch functionality
+    function handleTouchStart(event) {
+        isDragging = true;
+        startX = event.touches[0].clientX;
+        stopAutoSlide(); // Pause auto sliding on touch start
+    }
+
+    function handleTouchMove(event) {
+        if (!isDragging) return;
+        currentX = event.touches[0].clientX;
+        const distance = startX - currentX;
+
+        slides.style.transform = 'translateX(' + (-index * 100 - (distance / window.innerWidth * 100)) + '%)';
+    }
+
+    function handleTouchEnd(event) {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const distance = startX - event.changedTouches[0].clientX;
+        if (distance > 50) {
+            // Swipe left
+            showSlide(index + 1);
+        } else if (distance < -50) {
+            // Swipe right
+            showSlide(index - 1);
+        } else {
+            // Reset the position
+            slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+        }
+
+        startAutoSlide(); // Resume auto sliding
+    }
+
+    // Add touch event listeners
+    const slider = document.querySelector('.slider');
+    slider.addEventListener('touchstart', handleTouchStart);
+    slider.addEventListener('touchmove', handleTouchMove);
+    slider.addEventListener('touchend', handleTouchEnd);
+
+    window.onclick = function(event) {
+        const mobileNav = document.getElementById('mobileNav');
+        const header = document.getElementById('header');
+        if (!header.contains(event.target) && mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+            document.body.style.overflow = ''; 
+        }
+    };
+
+    window.onscroll = function() {
+        const header = document.getElementById('header');
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    };
+
+    function toggleMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+            document.body.style.overflow = ''; 
+        } else {
+            mobileNav.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+    }
+</script>
+</body>
+</html>
+

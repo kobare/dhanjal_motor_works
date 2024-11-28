@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanjal Motor Works - Services</title>
+    <link rel="icon" href="assets/img/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .banner {
+            background-color: #9d1e02;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            flex-shrink: 0;
+        }
+        .services {
+            max-width: 1000px; /* Increased max width */
+            margin: 40px auto;
+            text-align: left;
+            padding: 20px;
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px; /* Increased gap between columns */
+        }
+        .service-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        .service-item i {
+            font-size: 24px;
+            color: #9d1e02;
+            margin-right: 10px;
+        }
+        .service-item h3 {
+            margin: 0;
+            color: #9d1e02;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background-color: white;
+            color: #00143d; 
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 320px;
+            padding: 0 40px;
+        }
+        .logo {
+            font-size: 24px;
+            color: #00143d; 
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+        .nav a {
+            color: #00143d; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav a:hover {
+            color: #9d1e02; 
+        }
+        .nav a.active {
+            color: #00143d; 
+        }
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #9d1e02; 
+            border-radius: 2px;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #00143d; 
+            cursor: pointer;
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: fixed; 
+            top: 25%; 
+            left: 50%; 
+            transform: translate(-50%, 0); 
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-height: 70%; 
+            border-radius: 10px;
+            padding: 20px;
+            gap: 20px;
+            overflow-y: auto; 
+            z-index: 20; 
+        }
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: left;
+        }
+        .mobile-nav a.active {
+            color: #9d1e02; 
+        }
+        .footer {
+            background-color: #00143d; 
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            flex-shrink: 0; 
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                gap: 0;
+                padding: 0 20px;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .nav {
+                display: none;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .services {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .header-content {
+                align-items: center;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header" id="header">
+    <div class="header-content">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo/logo.png" alt="Dhanjal Motor Works Logo">
+        </a>
+        <div class="nav" id="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</div>
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="banner">
+    <h1>Our Services</h1>
+    <p>Expert solutions for panel beating, spray painting, servicing, and hauling needs.</p>
+</div>
+
+<div class="services">
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Panel Beating</h3>
+            <p>Our expert panel beating services ensure that your vehicle's bodywork is repaired to perfection. We use advanced techniques and equipment to restore the original shape and structure of your car after dents, scratches, and accidents.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Spray Painting</h3>
+            <p>We offer high-quality spray painting services, including custom color matching, to give your vehicle a flawless, like-new finish. Whether you need a full respray or spot repairs, our skilled team ensures a smooth, professional result every time.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Vehicle Servicing</h3>
+            <p>Regular vehicle servicing is essential for ensuring the longevity and reliability of your car. Our comprehensive servicing packages include engine checks, fluid changes, filter replacements, brake inspections, and more, keeping your vehicle in optimal condition.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>General Hauling</h3>
+            <p>We provide efficient and safe general hauling services for transporting a wide range of goods, including construction materials, machinery, and personal items. Our fleet is equipped to handle both small and large loads with ease, ensuring your items reach their destination securely.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Engine Diagnostics</h3>
+            <p>Our advanced engine diagnostics tools help identify any underlying issues affecting your vehicle's performance. Whether it’s an issue with the engine, transmission, or electrical system, we quickly pinpoint the problem and provide an effective solution.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Minor and Major Repairs</h3>
+            <p>We handle both minor and major repairs, from fixing small components like light bulbs to addressing major issues such as engine rebuilds. No matter the problem, our team works efficiently to get your vehicle back on the road as soon as possible.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Performance Tuning</h3>
+            <p>Maximize your vehicle's potential with our performance tuning services. From engine remapping to exhaust system modifications, we tailor each tune to improve horsepower, fuel efficiency, and overall driving experience, giving you better control on the road.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Battery Services</h3>
+            <p>A well-functioning battery is key to vehicle reliability. We provide comprehensive battery services, including testing, replacement, and installation, ensuring your vehicle starts reliably every time and that your electrical system stays in optimal shape.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Tire Fitting & Alignment</h3>
+            <p>We offer tire fitting, balancing, and alignment services to ensure your vehicle’s tires wear evenly, improving safety and performance. Proper alignment also enhances fuel efficiency and extends the life of your tires.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Suspension Repairs</h3>
+            <p>Suspension problems can affect vehicle handling and comfort. We provide repair and replacement services for suspension components like shock absorbers, struts, and springs to ensure your vehicle rides smoothly and safely.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Transmission Services</h3>
+            <p>Our transmission services include diagnosing issues, repairing or replacing components, and fluid changes. A well-maintained transmission ensures smooth gear shifting and extends the life of your vehicle’s drivetrain.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Fuel System Repair</h3>
+            <p>Our fuel system repair services help address issues such as clogged fuel injectors, fuel pump failures, and poor fuel economy. We ensure your fuel system operates at peak performance, keeping your engine running smoothly.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Brake System Services</h3>
+            <p>We offer full brake system services, from pad replacements to complete brake overhauls. Our expert team ensures that your vehicle’s braking system is responsive and safe, meeting all required safety standards.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Electrical Diagnostics</h3>
+            <p>We provide thorough electrical diagnostics to identify issues affecting the electrical system of your vehicle. From faulty wiring to malfunctioning alternators, we’ll find and resolve the problem to restore full electrical functionality.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Exhaust System Repairs</h3>
+            <p>Our exhaust system repairs focus on restoring efficiency, reducing emissions, and enhancing performance. We repair or replace damaged exhaust components, including mufflers, catalytic converters, and exhaust pipes.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Fleet Maintenance</h3>
+            <p>Our fleet maintenance services ensure that your business vehicles are always in top working condition. From scheduled servicing to emergency repairs, we provide tailored solutions to minimize downtime and maximize fleet performance.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <i class="fas fa-tools"></i>
+        <div>
+            <h3>Custom Bodywork</h3>
+            <p>We offer custom bodywork and modifications to give your vehicle a unique look or to fit specific functional requirements. Whether it’s for aesthetics or functionality, our skilled team delivers high-quality custom work that meets your exact needs.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; <span id="currentYear"></span> Dhanjal Motor Works. All Rights Reserved.
+</div>
+
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        if (mobileNav.style.display === 'flex') {
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            document.body.style.overflow = ''; 
+        }
+    }
+
+    window.onclick = function(event) {
+        const mobileNav = document.getElementById('mobileNav');
+        const header = document.getElementById('header');
+        if (!header.contains(event.target) && mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+            document.body.style.overflow = ''; 
+        }
+    };
+</script>
+
+</body>
+</html>
+
